@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+    /** Text Colors */
+    --color-primaryText: #333333;
+    --color-secondaryText: #6A0DAD;
+    --color-primaryHeading: #333333;
+    --color-secondaryHeading: #6A0DAD;
+    --color-headerPrimaryText: #333333;
+    --color-headerSecondaryText: #6A0DAD;
+    --color-footerPrimaryText: #333333;
+    --color-footerSecondaryText: #6A0DAD;
+
+    /** General Background Colors */
+    --color-mainBackground: #FFFFFF;
+    --color-primaryBackground: #F2F2F2;
+    --color-secondaryBackground: #FFFFFF;
+    --color-footerBackground: #F2F2F2;
+    --color-headerBackground: #F2F2F2;
+
+    /** Specific Hero Section */
+    --color-heroBackground: #6A0DAD;
+    --color-heroHeading: #FFFFFF;
+    --color-heroPrimaryText: #FFFFFF;
+    --color-heroSecondaryText: #F2F2F2; 
+    
+    /** Border Colors */
+    --color-footerBorder: rgba(104, 13, 173, 0.88);
+    --color-headerBorder: rgba(104, 13, 173, 0.88);
+    --color-rowBorder: rgba(104, 13, 173, 0.88);
+
+    /** Button Colors */
+    --color-primaryButtonBackground: #6A0DAD;
+    --color-primaryButtonText: #FFFFFF;
+    --color-secondaryButtonBackground: #007BFF;
+    --color-secondaryButtonText: #FFFFFF;
+
+    /** Input Field Colors */
+    --color-inputBackground: #FFFFFF;
+    --color-inputText: #333333;
+    --color-inputBorder: #333333;
+    --color-inputPlaceholder: #999999;
+
+    /** Link Colors */
+    --color-linkText: #007BFF;
+    --color-linkHover: #0056b3;
+}
+
+h1 {
+    @apply text-4xl font-bold mb-4 
+}
+h2 {
+    @apply text-3xl font-bold mb-4 
+}
+h3 {
+    @apply text-2xl font-bold mb-4 
+}
+
+p {
+    @apply mb-4 text-xl
+}
