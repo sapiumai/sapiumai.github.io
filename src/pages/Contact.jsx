@@ -24,32 +24,34 @@ const Contact = () => {
     };
 
     return (
-        <div className="container max-w-6xl mx-auto p-6">
+        <div className="container max-w-6xl mx-auto p-6 mt-10">
+            <div className='mb-10'>
+                <h3 className='text-4xl font-bold mb-10'>Get in Touch!</h3>
+                <p className='text-xl'>We are always looking for new opportunities to collaborate, innovate, and grow. Whether you're seeking AI-driven solutions, exploring partnership opportunities, or interested in joining our team, we’d love to hear from you!</p>
+            </div>
             <div className="flex">
                 <div className="w-1/3 text-left">
-                    <h3 className="text-2xl">Connect With Us</h3>
                     <div className="space-y-2 mt-10">
-                        <div className="flex flex-row">
-                            <a
-                                href="https://www.linkedin.com/company/sapiumai"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex mt-1"
-                            >
-                                <img src={linkedin} alt="linkedin" className="w-6 h-6 mr-5" />
-                            </a>
-                            <p className='text-primaryText'>Follow us!</p>
-                        </div>
-                        <div className="flex flex-row">
+                        <a
+                            href="https://www.linkedin.com/company/sapiumai"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex flex-row items-center mb-5"
+                        >
+                            <img src={linkedin} alt="linkedin" className="w-5 h-5" />
+                            <p className='text-primaryText text-xl ml-5'>Follow us!</p>
+                        </a>
+
+                        <div className="flex flex-row items-center">
                             <a
                                 href="https://github.com/sapiumai"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex mt-1"
+                                className="flex flex-row items-center mb-5"
                             >
-                                <img src={github} alt="github" className="w-6 h-6 mr-5" />
+                                <img src={github} alt="github" className="w-5 h-5" />
+                                <p className='text-primaryText text-xl ml-5'>Check out our projects!</p>
                             </a>
-                            <p className='text-primaryText items-center'>Check out our projects!</p>
                         </div>
                     </div>
                 </div>
@@ -60,10 +62,9 @@ const Contact = () => {
 
                 {/* Right Column - Contact Form */}
                 <div className="w-2/3">
-                    <h3 className="text-2xl ">Send us an e-mail</h3>
                     <form ref={form} onSubmit={sendEmail} className="space-y-4 mt-10">
                         <div>
-                            <label className="block text-primaryText mb-2">Name</label>
+                            <label className="block text-primaryText mb-2 text-lg font-semibold">Your name</label>
                             <input
                                 type="text"
                                 name="user_name"
@@ -73,7 +74,7 @@ const Contact = () => {
                         </div>
 
                         <div>
-                            <label className="block text-primaryText mb-2">Email</label>
+                            <label className="block text-primaryText text-lg font-semibold mb-2">Your e-mail</label>
                             <input
                                 type="email"
                                 name="user_email"
@@ -83,7 +84,7 @@ const Contact = () => {
                         </div>
 
                         <div>
-                            <label className="block text-primaryText mb-2">Message</label>
+                            <label className="block text-primaryText text-lg font-semibold mb-2">Message</label>
                             <textarea
                                 name="message"
                                 className="w-full p-2 rounded bg-primaryBackground text-primaryText h-32 border-footerBorder border"
