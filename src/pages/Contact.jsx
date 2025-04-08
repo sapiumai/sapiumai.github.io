@@ -10,16 +10,16 @@ const Contact = () => {
         e.preventDefault();
 
         emailjs.sendForm(
-            'YOUR_SERVICE_ID',
-            'YOUR_TEMPLATE_ID',
+            'service_da6kt7j',
+            'template_arastto',
             form.current,
-            'YOUR_PUBLIC_KEY'
+            'yLgyCNTvTh__OirJV'
         )
             .then((result) => {
-                console.log('Email sent successfully');
+                alert('Email sent successfully!');
                 form.current.reset();
             }, (error) => {
-                console.log('Failed to send email:', error);
+                alert('Failed to send email: ' + error.text);
             });
     };
 
@@ -27,7 +27,7 @@ const Contact = () => {
         <div className="container max-w-6xl mx-auto p-6 mt-10">
             <div className='mb-10'>
                 <h3 className='text-4xl font-bold mb-10'>Get in Touch!</h3>
-                <p className='text-xl'>We are always looking for new opportunities to collaborate, innovate, and grow. Whether you're seeking AI-driven solutions, exploring partnership opportunities, or interested in joining our team, we’d love to hear from you!</p>
+                <p className='text-xl'>We are always looking for new opportunities to collaborate, innovate, and grow. Whether you're seeking AI-driven solutions, exploring partnership opportunities, or interested in joining our team, we'd love to hear from you!</p>
             </div>
             <div className="flex">
                 <div className="w-1/3 text-left">

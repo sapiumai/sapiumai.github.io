@@ -11,15 +11,15 @@ const Banner = () => {
     }
 
     return (
-        <div className="flex flex-col items-center bg-secondaryBackground p-8 mt-20 mb-20">
-            <h4 className="text-secondaryHeading text-4xl mb-5 leading-normal text-center">
+        <div className="flex flex-col items-center bg-secondaryBackground p-8 mt-30 mb-20">
+            <h4 className="text-secondaryHeading text-4xl leading-normal text-center">
                 Unlock Efficiency, Innovation, and Growth with AI-Powered Intelligence.
             </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mt-8d">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 mt-15">
                 {bannerData.items.map((item, index) => (
-                    <div key={index} className="p-4 bg-bannerBoxBackground shadow rounded-lg text-center">
-                        <h5 className="text-3xl font-bold text-bannerHeading mt-3 mb-5">{item.title}</h5>
-                        <p className="text-bannerPrimaryText text-2xl">{item.description}</p>
+                    <div key={index} className="p-4 bg-primaryBackground shadow rounded-lg text-center">
+                        <h5 className="text-3xl font-bold text-primaryHeading mt-3 mb-5">{item.title}</h5>
+                        <p className="text-headerPrimaryText text-2xl">{item.description}</p>
                     </div>
                 ))}
             </div>
