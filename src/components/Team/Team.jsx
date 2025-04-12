@@ -1,4 +1,4 @@
-import sanjay from '../../assets/sp.jpeg'
+import sanjay from '../../assets/sp2.jpg'
 import joaquin from '../../assets/jm.jpg'
 import mauricio from '../../assets/mf.jpg'
 import TeamMember from './TeamMember'
