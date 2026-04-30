@@ -1,0 +1,151 @@
+---
+const currentPath = Astro.url.pathname
+const isActive = (href: string) =>
+  href === '/' ? currentPath === '/' : currentPath.startsWith(href)
+---
+
+<header class="sticky top-0 z-50 bg-bgBase border-b border-borderSubtle">
+  <div class="max-w-6xl mx-auto px-6 py-4">
+    <nav aria-label="Main navigation">
+      <div class="flex items-center justify-between">
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 focus-ring rounded" aria-label="sapium.ai home">
+          <div
+            class="w-8 h-8 rounded flex items-center justify-center flex-shrink-0"
+            style="background: linear-gradient(135deg, #7030A0 0%, #0D1B2A 100%);"
+          >
+            <img src="/sapium-logo.svg" alt="" width="20" height="20" />
+          </div>
+          <span class="font-display font-semibold text-textPrimary text-lg leading-none">
+            sapium.ai
+          </span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <ul class="hidden lg:flex items-center gap-6 list-none m-0 p-0">
+          <li>
+            <a
+              href="/"
+              aria-current={isActive('/') ? 'page' : undefined}
+              class:list={[
+                'text-sm font-medium transition-colors duration-200 focus-ring',
+                isActive('/') ? 'text-textPrimary font-semibold' : 'text-textMuted hover:text-textPrimary',
+              ]}
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="/docs"
+              aria-current={isActive('/docs') ? 'page' : undefined}
+              class:list={[
+                'text-sm font-medium transition-colors duration-200 focus-ring',
+                isActive('/docs') ? 'text-textPrimary font-semibold' : 'text-textMuted hover:text-textPrimary',
+              ]}
+            >
+              Docs
+            </a>
+          </li>
+          <li>
+            <a href="/contact" class="btn-primary text-sm py-2">
+              Contact
+            </a>
+          </li>
+        </ul>
+
+        <!-- Hamburger button (mobile only) -->
+        <button
+          id="hamburger"
+          class="lg:hidden flex flex-col justify-center items-center gap-1.5 w-6 h-6 focus-ring"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Open navigation menu"
+          type="button"
+        >
+          <span class="block w-6 h-0.5 bg-textMuted transition-all duration-200"></span>
+          <span class="block w-6 h-0.5 bg-textMuted transition-all duration-200"></span>
+          <span class="block w-6 h-0.5 bg-textMuted transition-all duration-200"></span>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden border-t border-borderSubtle mt-3 pt-4 pb-2"
+      >
+        <ul class="flex flex-col gap-4 list-none m-0 p-0">
+          <li>
+            <a
+              href="/"
+              aria-current={isActive('/') ? 'page' : undefined}
+              class:list={[
+                'block text-sm font-medium transition-colors duration-200 focus-ring',
+                isActive('/') ? 'text-textPrimary font-semibold' : 'text-textMuted hover:text-textPrimary',
+              ]}
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="/docs"
+              aria-current={isActive('/docs') ? 'page' : undefined}
+              class:list={[
+                'block text-sm font-medium transition-colors duration-200 focus-ring',
+                isActive('/docs') ? 'text-textPrimary font-semibold' : 'text-textMuted hover:text-textPrimary',
+              ]}
+            >
+              Docs
+            </a>
+          </li>
+          <li>
+            <a href="/contact" class="btn-primary text-sm py-2 inline-block">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const hamburger = document.getElementById('hamburger') as HTMLButtonElement
+  const mobileMenu = document.getElementById('mobile-menu') as HTMLElement
+
+  function openMenu() {
+    mobileMenu.classList.remove('hidden')
+    hamburger.setAttribute('aria-expanded', 'true')
+    hamburger.setAttribute('aria-label', 'Close navigation menu')
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.add('hidden')
+    hamburger.setAttribute('aria-expanded', 'false')
+    hamburger.setAttribute('aria-label', 'Open navigation menu')
+  }
+
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.getAttribute('aria-expanded') === 'true'
+    isOpen ? closeMenu() : openMenu()
+  })
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && hamburger.getAttribute('aria-expanded') === 'true') {
+      closeMenu()
+      hamburger.focus()
+    }
+  })
+
+  document.addEventListener('click', (e) => {
+    const target = e.target as Node
+    if (!hamburger.contains(target) && !mobileMenu.contains(target)) {
+      closeMenu()
+    }
+  })
+
+  mobileMenu.querySelectorAll('a, button').forEach((el) => {
+    el.addEventListener('click', closeMenu)
+  })
+</script>
