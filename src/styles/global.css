@@ -1,0 +1,64 @@
+@import "tailwindcss";
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource-variable/inter";
+
+@theme {
+  /* Color tokens */
+  --color-bgBase: #0D1B2A;
+  --color-bgCard: #151F2B;
+  --color-bgElevated: #1A2332;
+  --color-accent: #7030A0;
+  --color-accentHover: #8040B8;
+  --color-textPrimary: #F0F0F0;
+  --color-textMuted: #D0D0D0;
+  --color-textSubtle: #8A9BB0;
+  --color-borderSubtle: rgba(112, 48, 160, 0.3);
+  --color-borderActive: rgba(112, 48, 160, 0.6);
+  --color-bgAccentSubtle: rgba(112, 48, 160, 0.15);
+
+  /* Typography tokens */
+  --font-display: "Space Grotesk Variable", sans-serif;
+  --font-body: "Inter Variable", sans-serif;
+}
+
+/* Base resets */
+html {
+  font-family: var(--font-body);
+  background-color: #0D1B2A;
+  color: #F0F0F0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+@layer components {
+  /* Primary button — bg-accent text-white, used for primary CTAs */
+  .btn-primary {
+    @apply bg-accent text-white px-6 py-3 rounded font-semibold transition-colors duration-200;
+    &:hover { @apply bg-accentHover; }
+    &:focus-visible { @apply outline outline-2 outline-borderActive outline-offset-2; }
+  }
+
+  /* Outline button — border only, used for secondary CTAs */
+  .btn-outline {
+    @apply border border-borderActive text-textMuted px-6 py-3 rounded font-semibold transition-colors duration-200;
+    &:hover { @apply text-textPrimary border-accent; }
+    &:focus-visible { @apply outline outline-2 outline-borderActive outline-offset-2; }
+  }
+
+  /* Text link */
+  .link-text {
+    @apply text-accent underline-offset-2 hover:underline;
+  }
+
+  /* Tag/badge pill */
+  .tag-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium text-accent border border-borderActive bg-bgAccentSubtle;
+  }
+
+  /* Focus ring — applied via focus-visible on all interactive elements */
+  .focus-ring {
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-borderActive focus-visible:outline-offset-2;
+  }
+}
