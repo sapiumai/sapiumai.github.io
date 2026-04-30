@@ -26,6 +26,7 @@ html {
   font-family: var(--font-body);
   background-color: #0D1B2A;
   color: #F0F0F0;
+  scroll-padding-top: 5rem; /* offset for sticky header so skip-link target isn't obscured */
 }
 
 h1, h2, h3, h4, h5, h6 {
