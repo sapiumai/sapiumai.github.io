@@ -122,49 +122,49 @@ const isActive = (href: string) =>
   const hamburger = document.getElementById('hamburger') as HTMLButtonElement
   const mobileMenu = document.getElementById('mobile-menu') as HTMLElement
 
-  if (!hamburger || !mobileMenu) return
-
-  function openMenu() {
-    mobileMenu.classList.remove('hidden')
-    hamburger.setAttribute('aria-expanded', 'true')
-    hamburger.setAttribute('aria-label', 'Close navigation menu')
-  }
-
-  function closeMenu() {
-    mobileMenu.classList.add('hidden')
-    hamburger.setAttribute('aria-expanded', 'false')
-    hamburger.setAttribute('aria-label', 'Open navigation menu')
-  }
-
-  hamburger.addEventListener('click', () => {
-    const isOpen = hamburger.getAttribute('aria-expanded') === 'true'
-    isOpen ? closeMenu() : openMenu()
-  })
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && hamburger.getAttribute('aria-expanded') === 'true') {
-      closeMenu()
-      hamburger.focus()
+  if (hamburger && mobileMenu) {
+    function openMenu() {
+      mobileMenu.classList.remove('hidden')
+      hamburger.setAttribute('aria-expanded', 'true')
+      hamburger.setAttribute('aria-label', 'Close navigation menu')
     }
-  })
 
-  document.addEventListener('click', (e) => {
-    const target = e.target as Node
-    if (
-      hamburger.getAttribute('aria-expanded') === 'true' &&
-      !hamburger.contains(target) &&
-      !mobileMenu.contains(target)
-    ) {
-      closeMenu()
+    function closeMenu() {
+      mobileMenu.classList.add('hidden')
+      hamburger.setAttribute('aria-expanded', 'false')
+      hamburger.setAttribute('aria-label', 'Open navigation menu')
     }
-  })
 
-  mobileMenu.querySelectorAll('a, button').forEach((el) => {
-    el.addEventListener('click', closeMenu)
-  })
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.getAttribute('aria-expanded') === 'true'
+      isOpen ? closeMenu() : openMenu()
+    })
 
-  // Close menu when viewport crosses lg breakpoint to prevent state desync on resize
-  window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => {
-    if (e.matches) closeMenu()
-  })
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && hamburger.getAttribute('aria-expanded') === 'true') {
+        closeMenu()
+        hamburger.focus()
+      }
+    })
+
+    document.addEventListener('click', (e) => {
+      const target = e.target as Node
+      if (
+        hamburger.getAttribute('aria-expanded') === 'true' &&
+        !hamburger.contains(target) &&
+        !mobileMenu.contains(target)
+      ) {
+        closeMenu()
+      }
+    })
+
+    mobileMenu.querySelectorAll('a, button').forEach((el) => {
+      el.addEventListener('click', closeMenu)
+    })
+
+    // Close menu when viewport crosses lg breakpoint to prevent state desync on resize
+    window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => {
+      if (e.matches) closeMenu()
+    })
+  }
 </script>
