@@ -1,0 +1,26 @@
+---
+type Service = {
+  name: string
+  description: string
+}
+type Props = {
+  heading: string
+  services: Service[]
+}
+const { heading, services } = Astro.props
+---
+<section aria-labelledby="services-heading" class="py-12 lg:py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 id="services-heading" class="font-display text-3xl font-semibold text-textPrimary mb-8 tracking-tight">
+      {heading}
+    </h2>
+    <dl class="divide-y divide-borderSubtle">
+      {services.map((service) => (
+        <div class="py-6">
+          <dt class="text-xl font-semibold text-textPrimary mb-2">{service.name}</dt>
+          <dd class="text-textMuted leading-relaxed">{service.description}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>

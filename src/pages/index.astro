@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import MissionSection from '../components/MissionSection.astro';
+import ServicesSection from '../components/ServicesSection.astro';
 ---
 
 <BaseLayout
@@ -17,6 +19,34 @@ import Hero from '../components/Hero.astro';
       subheadline="sapium.ai builds AI and data solutions for mid-tier telecom operators — MVNOs, Tier 2/3 carriers, and CDO-led teams that need measurable ROI, not technology for its own sake."
       primaryCta={{ label: "Start a conversation", href: "/contact" }}
       secondaryCta={{ label: "Read our work", href: "/docs" }}
+    />
+    <MissionSection
+      heading="Why ROI first."
+      body={[
+        "We believe AI earns its place in a business when it changes a number that matters. Every engagement starts with identifying the metric — churn rate, cost per activation, revenue per operator — and works backward from there.",
+        "Most of our clients are running operations where the data already exists and the opportunity is clear. What's missing is the engineering and analytical depth to close the gap. That's what we provide."
+      ]}
+    />
+    <ServicesSection
+      heading="What we do."
+      services={[
+        {
+          name: "AI + Data Consulting",
+          description: "Expert guidance on AI strategy, data architecture, and implementation — from identifying the right use cases to delivering production-grade systems that generate measurable returns."
+        },
+        {
+          name: "CDO-as-a-Service",
+          description: "Embedded data leadership for operators and enterprises that need Chief Data Officer judgment and accountability without the cost of a full-time executive hire."
+        },
+        {
+          name: "Custom AI Solutions",
+          description: "End-to-end development of machine learning models, feature pipelines, and intelligent automation — built for your specific data environment, not adapted from a generic template."
+        },
+        {
+          name: "Telco Data Expertise",
+          description: "Specialised AI and data delivery for MVNOs, MVNEs, and Tier 2/3 operators — from CDR analytics and churn prediction to network intelligence and revenue assurance."
+        }
+      ]}
     />
   </main>
 </BaseLayout>

@@ -1,0 +1,18 @@
+---
+type Props = {
+  heading: string
+  body: string | string[]
+}
+const { heading, body } = Astro.props
+const paragraphs = Array.isArray(body) ? body : [body]
+---
+<section aria-labelledby="mission-heading" class="py-12 lg:py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 id="mission-heading" class="font-display text-3xl font-semibold text-textPrimary mb-6 tracking-tight">
+      {heading}
+    </h2>
+    {paragraphs.map((p) => (
+      <p class="text-textMuted text-lg leading-relaxed mb-4 last:mb-0 max-w-2xl">{p}</p>
+    ))}
+  </div>
+</section>
