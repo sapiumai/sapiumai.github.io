@@ -1,0 +1,15 @@
+---
+type Props = {
+  industry: string
+  title: string
+  description: string
+}
+const { industry, title, description } = Astro.props
+---
+<div class="bg-bgCard border border-borderSubtle rounded-lg p-6 transition-colors duration-200 ease-in-out hover:border-borderActive hover:bg-bgElevated">
+  <p class="text-accent uppercase text-sm font-semibold mb-3" style="letter-spacing: 0.08em;">
+    {industry}
+  </p>
+  <h3 class="text-textPrimary text-xl font-semibold mb-3 break-words">{title}</h3>
+  <p class="text-textMuted leading-relaxed break-words">{description}</p>
+</div>

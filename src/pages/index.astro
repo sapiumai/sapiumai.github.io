@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import MissionSection from '../components/MissionSection.astro';
 import ServicesSection from '../components/ServicesSection.astro';
+import SolutionsSection from '../components/SolutionsSection.astro';
 ---
 
 <BaseLayout
@@ -45,6 +46,22 @@ import ServicesSection from '../components/ServicesSection.astro';
         {
           name: "Telco Data Expertise",
           description: "Specialised AI and data delivery for MVNOs, MVNEs, and Tier 2/3 operators — from CDR analytics and churn prediction to network intelligence and revenue assurance."
+        }
+      ]}
+    />
+    <SolutionsSection
+      heading="What we've built."
+      subheading="Proof of execution across two industries."
+      solutions={[
+        {
+          industry: "TELCO · MVNO/MVNE",
+          title: "Telco Feature Generation Platform",
+          description: "Designed and deployed an ML feature pipeline for a Tier 2 MVNO/MVNE operator, generating subscriber behavioural signals from raw CDRs. The platform replaced a third-party analytics dependency and now feeds production churn prediction and revenue assurance models from the operator's own data estate."
+        },
+        {
+          industry: "MINING · COMPUTER VISION",
+          title: "Ore Classification System",
+          description: "Built a real-time ore grade classification system using computer vision for an open-pit mining operation. Convolutional models analyse belt conveyor imagery to automate grade assessment, replacing manual sampling and enabling faster feed-blend decisions with higher confidence."
         }
       ]}
     />
