@@ -1,0 +1,26 @@
+---
+type Props = {
+  heading?: string
+  subtext?: string
+}
+
+const {
+  heading = "Ready to move from data to decisions?",
+  subtext = "We work with mid-tier telecom operators ready to take AI from proof-of-concept to production.",
+} = Astro.props
+---
+
+<section aria-labelledby="contact-cta-heading" class="py-12 lg:py-20 border-t border-borderSubtle">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2
+      id="contact-cta-heading"
+      class="font-display text-3xl font-semibold text-textPrimary mb-4 tracking-tight"
+    >
+      {heading}
+    </h2>
+    {subtext && (
+      <p class="text-textMuted text-lg mb-8 max-w-xl mx-auto">{subtext}</p>
+    )}
+    <a href="/contact" class="btn-primary">Start a conversation</a>
+  </div>
+</section>
