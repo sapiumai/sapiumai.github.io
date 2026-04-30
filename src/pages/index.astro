@@ -4,6 +4,11 @@ import Hero from '../components/Hero.astro';
 import MissionSection from '../components/MissionSection.astro';
 import ServicesSection from '../components/ServicesSection.astro';
 import SolutionsSection from '../components/SolutionsSection.astro';
+import TeamSection from '../components/TeamSection.astro';
+
+import mfPhoto from '../assets/team/mf.jpg';
+import jmPhoto from '../assets/team/jm.jpg';
+import spPhoto from '../assets/team/sp.jpg';
 ---
 
 <BaseLayout
@@ -63,6 +68,32 @@ import SolutionsSection from '../components/SolutionsSection.astro';
           title: "Ore Classification System",
           description: "Built a real-time ore grade classification system using computer vision for an open-pit mining operation. Convolutional models analyse belt conveyor imagery to automate grade assessment, replacing manual sampling and enabling faster feed-blend decisions with higher confidence."
         }
+      ]}
+    />
+    <TeamSection
+      heading="The team."
+      members={[
+        {
+          name: "Mauricio Falck",
+          role: "CTO",
+          bio: "Three decades operating telecom IT systems — BSS/OSS stacks, large-scale system architecture, and AI delivery across consulting and in-house roles. At sapium.ai, Mauricio leads technical delivery, designing AI use cases from scoping through to production.",
+          photo: mfPhoto,
+          initials: "MF",
+        },
+        {
+          name: "Joaquin Molina",
+          role: "CRO",
+          bio: "Thirty years operating BSS/OSS/VAS across the Americas and Europe, with deep specialisation in MVNOs and IoT segments. Joaquin has led Digital Transformation programmes for Communication Service Providers and understands the commercial and technical constraints of mid-tier operators.",
+          photo: jmPhoto,
+          initials: "JM",
+        },
+        {
+          name: "Sanjay Pandey",
+          role: "COO",
+          bio: "Three decades leading delivery teams across EMEA, Latin America, and South-East Asia — from complex technology programmes to strategic commercial deals. Sanjay anchors sapium.ai's operations, ensuring every engagement runs to scope, budget, and measurable outcome.",
+          photo: spPhoto,
+          initials: "SP",
+        },
       ]}
     />
   </main>
