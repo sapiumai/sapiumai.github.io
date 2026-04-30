@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+// TODO 3.3: Replace this stub with DocListing component and getCollection('docs') query
+---
+
+<BaseLayout
+  title="Docs — sapium.ai"
+  description="AI and data insights from the sapium.ai team — articles, brochures, and technical briefs for mid-tier telecom operators."
+  ogImage="/og-default.png"
+  canonicalUrl={new URL(Astro.url.pathname, Astro.site).href}
+  ogImageWidth={1200}
+  ogImageHeight={630}
+>
+  <main id="main-content">
+    <section aria-labelledby="docs-heading" class="py-12 lg:py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <h1 id="docs-heading" class="font-display text-4xl font-bold text-textPrimary mb-6 tracking-tight">
+          Docs
+        </h1>
+        <p class="text-textMuted text-lg">
+          Articles and technical briefs from the sapium.ai team.
+        </p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,44 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { formatDate } from '../../utils/formatDate'
+
+export async function getStaticPaths() {
+  const docs = await getCollection('docs')
+  return docs.map((entry: CollectionEntry<'docs'>) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }))
+}
+
+type Props = { entry: CollectionEntry<'docs'> }
+
+const { entry } = Astro.props
+const { Content } = await render(entry)
+
+// TODO 3.4: Add Article JSON-LD, ContactCTA, full article styles
+---
+
+<BaseLayout
+  title={`${entry.data.title} — sapium.ai`}
+  description={entry.data.description}
+  ogImage="/og-default.png"
+  canonicalUrl={new URL(Astro.url.pathname, Astro.site).href}
+  ogImageWidth={1200}
+  ogImageHeight={630}
+>
+  <main id="main-content" class="py-12 lg:py-20">
+    <article class="max-w-3xl mx-auto px-6">
+      <h1 class="font-display text-4xl font-bold text-textPrimary mb-4 tracking-tight">
+        {entry.data.title}
+      </h1>
+      <p class="text-textSubtle text-sm mb-8">
+        {entry.data.author} · {formatDate(entry.data.date)}
+      </p>
+      <div class="text-textMuted leading-relaxed space-y-4">
+        {/* TODO 3.4: Add proper article typography styles */}
+        <Content />
+      </div>
+    </article>
+  </main>
+</BaseLayout>
