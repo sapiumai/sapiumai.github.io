@@ -1,18 +1,17 @@
 ---
-import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/sapium-logo.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
-    <title>sapium.ai — AI Consulting &amp; Development</title>
-    <meta name="description" content="sapium.ai provides AI consulting, custom AI development, and data intelligence services." />
-  </head>
-  <body class="bg-bgBase text-textPrimary">
+<BaseLayout
+  title="sapium.ai — AI &amp; Data Consulting"
+  description="sapium.ai delivers AI and data consulting, CDO-as-a-Service, and custom AI solutions for mid-tier telecom operators including MVNOs and Tier 2/3 carriers."
+  ogImage="/logo.png"
+  canonicalUrl={new URL(Astro.url.pathname, Astro.site).href}
+  ogImageWidth={2821}
+  ogImageHeight={716}
+>
+  <main id="main-content">
     <h1>sapium.ai</h1>
     <p>Site coming soon.</p>
-  </body>
-</html>
+  </main>
+</BaseLayout>
