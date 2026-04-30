@@ -1,17 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
 ---
 
 <BaseLayout
   title="sapium.ai — AI &amp; Data Consulting"
   description="sapium.ai delivers AI and data consulting, CDO-as-a-Service, and custom AI solutions for mid-tier telecom operators including MVNOs and Tier 2/3 carriers."
-  ogImage="/logo.png"
+  ogImage="/og-default.png"
   canonicalUrl={new URL(Astro.url.pathname, Astro.site).href}
-  ogImageWidth={2821}
-  ogImageHeight={716}
+  ogImageWidth={1200}
+  ogImageHeight={630}
 >
   <main id="main-content">
-    <h1>sapium.ai</h1>
-    <p>Site coming soon.</p>
+    <Hero
+      headline="ROI, not technology."
+      subheadline="sapium.ai builds AI and data solutions for mid-tier telecom operators — MVNOs, Tier 2/3 carriers, and CDO-led teams that need measurable ROI, not technology for its own sake."
+      primaryCta={{ label: "Start a conversation", href: "/contact" }}
+      secondaryCta={{ label: "Read our work", href: "/docs" }}
+    />
   </main>
 </BaseLayout>
