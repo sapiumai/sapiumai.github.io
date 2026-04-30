@@ -1,0 +1,39 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { formatDate } from '../utils/formatDate'
+import TagBadge from './TagBadge.astro'
+
+type Props = {
+  doc: CollectionEntry<'docs'>
+  slug: string
+}
+const { doc, slug } = Astro.props
+---
+
+<a
+  href={`/docs/${slug}`}
+  aria-label={`Read article: ${doc.data.title}`}
+  class="block border border-borderSubtle bg-bgCard rounded-lg p-6
+         hover:border-borderActive hover:bg-bgElevated
+         transition-colors duration-200 ease-in-out focus-ring"
+>
+  {doc.data.tags.length > 0 && (
+    <div class="flex flex-wrap gap-2 mb-3">
+      {doc.data.tags.map((tag: string) => <TagBadge label={tag} />)}
+    </div>
+  )}
+
+  <h3 class="font-display text-lg font-semibold text-textPrimary mb-2 leading-snug">
+    {doc.data.title}
+  </h3>
+
+  {doc.data.description && (
+    <p class="text-textMuted text-sm leading-relaxed mb-4">
+      {doc.data.description}
+    </p>
+  )}
+
+  <time datetime={doc.data.date} class="text-textSubtle text-xs">
+    {formatDate(doc.data.date)}
+  </time>
+</a>

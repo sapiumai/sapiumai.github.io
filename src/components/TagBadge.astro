@@ -1,0 +1,7 @@
+---
+type Props = {
+  label: string
+}
+const { label } = Astro.props
+---
+{label && <span class="tag-badge">{label}</span>}
